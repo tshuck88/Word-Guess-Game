@@ -1,0 +1,12 @@
+Computer choose a random word
+The user starts the game by pressing any key
+Wins are displayed and increase in count by 1 for each win the user has
+Word is displayed under "Current Word" as underscores "_ _ _ _ _ _ _" based on how many letter are in the current word
+Number of guesses remaining are displayed starting at 12 and decrease in count by 1 for each guess the user has used
+Letters already guessed are displayed showing which letters have been guessed that are incorrect
+If the letter guess is correct it is displayed in the word in place of the underscore
+If user guesses the same letter twice, the # of guesses remaining does not decrease
+If the user guesses the word correctly before running out of guesses, the picture on the left is changed and text appears above the game box with the word
+A song or sound is also played when the user wins
+If the user runs out of guesses the picture on the left is changed to you lose and the text above is changed to display the correct word
+The game immediately resets when the user wins or loses
