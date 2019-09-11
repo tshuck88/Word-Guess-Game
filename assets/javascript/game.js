@@ -9,7 +9,7 @@ var winsText = document.getElementById("wins-text");
 var currentWordText = document.getElementById("current-word-text");
 var guessesRemainingText = document.getElementById("guesses-remaining-text");
 var lettersGuessedText = document.getElementById("letters-guessed-text");
-
+// var imageContentDisplay = document.getElementById("imgage-content")
 
 
 initializeGameState();
@@ -18,11 +18,7 @@ document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
     var correctLetter = false;
 
-    if (!userGuess.match(/^[0-9a-zA-Z]+$/)) {
-        alert("Please choose a letter or number")
-    }
-    else {
-
+    if (userGuess.match(/^[a-z0-9]+$/i)) {
         if (!lettersGuessed.includes(userGuess)) {
             for (var j = 0; j < currentWord.length; j++) {
                 if (userGuess === currentWord[j].toLowerCase()) {
@@ -34,6 +30,7 @@ document.onkeyup = function (event) {
                 if (!currentWordBlank.includes("_")) {
                     wins++;
                     initializeGameState();
+                    displayImage();
                 }
             }
             else {
@@ -46,8 +43,12 @@ document.onkeyup = function (event) {
             console.log(currentWordBlank)
             displayGameState();
         }
-
     }
+    // else {
+
+
+
+    // }
 }
 
 
@@ -68,4 +69,11 @@ function initializeGameState() {
         currentWordBlank[i] = "_";
     }
     displayGameState();
+}
+
+function displayImage() {
+   var imageContentDisplay = document.getElementById("img-content");
+   imageContentDisplay.setAttribute("src", "../word-guess-game/assets/images/" + currentWord.toLowerCase() + ".png");
+   imageContentDisplay.setAttribute("width", "300px");
+   imageContentDisplay.setAttribute("height", "auto");   
 }
