@@ -15,40 +15,43 @@ var lettersGuessedText = document.getElementById("letters-guessed-text");
 initializeGameState();
 
 document.onkeyup = function (event) {
-    var userGuess = event.key;
+    var userGuess = event.key.toLowerCase();
     var correctLetter = false;
 
-    if(!lettersGuessed.includes(userGuess)){
-        for (var j = 0; j < currentWord.length; j++) {
-            if (userGuess === currentWord[j].toLowerCase()) {
-                currentWordBlank[j] = userGuess;
-                correctLetter = true;
-            }
-        }
-        if (correctLetter) {
-            if(!currentWordBlank.includes("_")){
-                wins++;
-                initializeGameState();
-            }
-        }
-        else {
-            lettersGuessed.push(userGuess);
-            guessesRemaining--;  
-            if(guessesRemaining === 0){
-                initializeGameState();
-            }
-        }
-        console.log(currentWordBlank)
-        displayGameState();
+    if (!userGuess.match(/^[0-9a-zA-Z]+$/)) {
+        alert("Please choose a letter or number")
     }
-    // console.log(userGuess)
-    // console.log(lettersGuessed)
-    // console.log(guessesRemaining)
+    else {
 
+        if (!lettersGuessed.includes(userGuess)) {
+            for (var j = 0; j < currentWord.length; j++) {
+                if (userGuess === currentWord[j].toLowerCase()) {
+                    currentWordBlank[j] = userGuess;
+                    correctLetter = true;
+                }
+            }
+            if (correctLetter) {
+                if (!currentWordBlank.includes("_")) {
+                    wins++;
+                    initializeGameState();
+                }
+            }
+            else {
+                lettersGuessed.push(userGuess);
+                guessesRemaining--;
+                if (guessesRemaining === 0) {
+                    initializeGameState();
+                }
+            }
+            console.log(currentWordBlank)
+            displayGameState();
+        }
+
+    }
 }
 
 
-function displayGameState(){
+function displayGameState() {
     currentWordText.textContent = currentWordBlank.join(" ");
     guessesRemainingText.textContent = guessesRemaining;
     winsText.textContent = wins;

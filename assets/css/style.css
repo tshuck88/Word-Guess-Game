@@ -1,0 +1,23 @@
+body {
+    color: midnightblue;
+}
+.container {
+    margin-top: 50px;
+}
+.row {
+    margin-top: 50px;
+    background-color: whitesmoke;
+    border: dotted 5px midnightblue;
+    text-align: center;
+    padding: 25px;
+    font-size: 25px;
+
+}
+.col {
+    border-left: dotted 5px midnightblue;
+}
+h1 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid 2px midnightblue;
+}
