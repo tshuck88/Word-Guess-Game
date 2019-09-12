@@ -82,7 +82,7 @@ function displayImage() {
     imageContentDisplay.setAttribute("height", "auto");
 
     if (guessesRemaining === 0) {
-        imageContentDisplay.setAttribute("src", "../word-guess-game/assets/images/you-lose.png");
+        imageContentDisplay.setAttribute("src", "../Word-Guess-Game/assets/images/you-lose.png");
         winningWordText.textContent = "You lost. The word was " + currentWord + ".";
     } else {
         imageContentDisplay.setAttribute("src", "../word-guess-game/assets/images/" + currentWord.toLowerCase() + ".png");
