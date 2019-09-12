@@ -11,10 +11,11 @@ body {
     background-color: whitesmoke; 
     font-size: 25px;
     background-color: white;
+    min-height: 450px;
 
 }
 .col {
-    border: dotted 5px #003a73;
+    border: solid 5px #003a73;
     padding: 35px;
 }
 h1 {
