@@ -1,6 +1,7 @@
 body {
-    color: midnightblue;
+    color: #003a73;
     text-align: center;
+    background-image: url("../images/dust_scratches.png");
 }
 .container {
     margin-top: 50px;
@@ -9,13 +10,15 @@ body {
     margin-top: 50px;
     background-color: whitesmoke; 
     font-size: 25px;
+    background-color: white;
 
 }
 .col {
-    border: dotted 5px midnightblue;
+    border: dotted 5px #003a73;
     padding: 35px;
 }
 h1 {
     padding-bottom: 10px;
-    border-bottom: solid 2px midnightblue;
+    border-bottom: solid 2px #003a73;
+    font-weight: 900;
 }
