@@ -20,18 +20,24 @@ initializeGameState(); // call the function to start the game on page load
 document.onkeyup = function (event) { // function to listen to key events to play the game
     var userGuess = event.key.toLowerCase(); // variable to store user guesses as lower case letters
     var correctLetter = false; // set the correct letter to default as false
+    
+    if(userGuess.length !== 1){
+        return;
+    }
+    var isLetter = (userGuess >= "a" && userGuess <= "z");
+    var isNumber = (userGuess >= "0" && userGuess <= "9");
 
-    if (userGuess.match(/^[a-z0-9]+$/i)) {
+    if (isLetter || isNumber) { // checks if the key the user guessed is a letter or a number
         if (!lettersGuessed.includes(userGuess)) { // if letters already guessed do not include the user guess
             for (var j = 0; j < currentWord.length; j++) { // then run a for loop the length of the current word
                 if (userGuess === currentWord[j].toLowerCase()) { // if the user guess equals a letter in the current word
-                    currentWordBlank[j] = userGuess; // then replace the correspending current word blank letter with the user guess
+                    currentWordBlank[j] = userGuess; // then replace the correspending current word blank underscore with the user guess letter
                     correctLetter = true; // set the correct letter to true
                 }
             }
             if (correctLetter) { // if correct letter is true
                 if (!currentWordBlank.includes("_")) { // and if the current word blank doesn't include any underscores
-                    wins++; // then the user has won and so increase the win count by 1
+                    wins++; // then the user has won so increase the win count by 1
                     displayImage(); // call the function to display the correspending team image and winning text
                     initializeGameState(); // call the function to reset the game 
                 }
@@ -39,20 +45,14 @@ document.onkeyup = function (event) { // function to listen to key events to pla
             else {
                 lettersGuessed.push(userGuess); // if the user guess is not correct then push that to the lettersGuessed array
                 guessesRemaining--; // decrease the guesses remaining by 1
-                if (guessesRemaining === 0) { // if the guess remaining equals 0 the user has lost
+                if (guessesRemaining === 0) { // if the guesses remaining equals 0 the user has lost
                     displayImage(); // display the corresponding losing image and text
                     initializeGameState(); // reset the game
                 }
             }
-            console.log(currentWordBlank)
             displayGameState(); // call the function to update the game text after the user has pressed a key that hasn't been guessed yet
         }
     }
-    // else {
-
-
-
-    // }
 };
 
 // function to update game text with the current game state
