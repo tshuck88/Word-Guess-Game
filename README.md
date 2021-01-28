@@ -1,5 +1,7 @@
 # Word-Guess-Game
 
+Link to game: https://tshuck88.github.io/Word-Guess-Game/
+
 # Introduction
 Welcome to my word guessing game. I created this game as an assignment for the coding bootcamp I am enrolled in. 
 
